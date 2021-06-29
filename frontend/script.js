@@ -70,7 +70,8 @@ const getPrediction = async () => {
   .then(response => response.json())
   .then(result => {
     console.log(result.label)
-    document.getElementById("result-text").textContent =  `${result.label} ->  ${result.percentage}%`
+    document.getElementById("result-text").textContent =  `${result.label}`
+    document.getElementById("result-value").textContent =  `${result.percentage.toFixed(2)}%`
   })
   .catch(error => console.log('error', error));
 }
@@ -82,7 +83,7 @@ const sendPicture = () => {
       sendPicture()
 
     })
-  }, 5000);
+  }, 100);
 }
 
 
